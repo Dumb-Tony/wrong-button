@@ -17,12 +17,12 @@
 <dialog id="modal"><h2 id="modalTitle"></h2><p id="modalBody"></p><button id="primary"></button> <button id="secondary">Cancel</button></dialog>
 </main><script>
 'use strict';
-const RULES='m1-1',DT=1/120,MAP=Object.freeze({power:'upper-left',horn:'upper-right',brake:'lower-left',drive:'right-lever',lift:'bottom'});
+const RULES='m1-2',DT=1/120,MAP=Object.freeze({power:'upper-left',horn:'upper-right',brake:'lower-left',drive:'right-lever',lift:'bottom'});
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const ground=x=>x<560?0:x<720?(x-560)*.3:48;
 function initial(){return {power:false,brake:true,drive:0,lift:false,forkHeight:0,vehicleX:130,loadPose:{x:330,y:0},loadSupported:'ground',stable:0,time:0,actions:0,drops:0,hints:0,complete:false};}
 function transition(s,type,value){let n={...s};if(type==='power')n.power=!s.power;if(type==='brake')n.brake=!s.brake;if(type==='drive')n.drive=clamp(Number(value),-1,1);if(type==='lift')n.lift=!!value;if(type!=='lift'||value)n.actions++;return n;}
-function step(s,dt){if(s.complete)return s;let n={...s,loadPose:{...s.loadPose},time:s.time+dt};let oldY=ground(s.vehicleX)+s.forkHeight;let dx=s.power&&!s.brake?s.drive*100*dt:0;n.vehicleX=clamp(s.vehicleX+dx,70,810);dx=n.vehicleX-s.vehicleX;
+function step(s,dt){if(s.complete)return s;let n={...s,loadPose:{...s.loadPose},time:s.time+dt};let oldY=ground(s.vehicleX)+s.forkHeight;let dx=s.power&&!s.brake?s.drive*100*dt:0;n.vehicleX=clamp(s.vehicleX+dx,70,840);dx=n.vehicleX-s.vehicleX;
  n.forkHeight=clamp(s.forkHeight+(s.power?(s.lift?65:-40)*dt:0),0,120);let fy=ground(n.vehicleX)+n.forkHeight;
  // The broad, two-sided carriage permits recovery from either side without turning controls.
  let reach=Math.abs(n.loadPose.x-n.vehicleX)<=76;

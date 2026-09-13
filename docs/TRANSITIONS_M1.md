@@ -1,4 +1,4 @@
-# M1 transition table — rules m1-1
+# M1 transition table — rules m1-2
 
 Developer reference: spoilers below. The game never labels these functions.
 
@@ -10,7 +10,7 @@ Developer reference: spoilers below. The game never labels these functions.
 | Right lever | Drive -1 / 0 / +1 | Power on AND brake released | Motion, or relay / strain caption |
 | Bottom ribbed control | Hold raises; release lowers | Power on | Vertical carriage, motor / dry-click caption |
 
-Simulation is a pure state transition at 120 Hz, maximum eight catch-up steps. Vehicle x is bounded 70–810; speed is 100 units/s. Fork travel is 0–120, raising 65/s, lowering 40/s. The floor is level to x560, ramps to elevation 48 at x720, then stays level. This is an authored puzzle, not training equipment.
+Simulation is a pure state transition at 120 Hz, maximum eight catch-up steps. Vehicle x is bounded 70–840; speed is 100 units/s. Fork travel is 0–120, raising 65/s, lowering 40/s. The floor is level to x560, ramps to elevation 48 at x720, then stays level. This is an authored puzzle, not training equipment.
 
 Pickup needs the powered rising carriage within 76 units of the crate and crossing its underside. Carried cargo follows the vehicle; lowering onto terrain hands support back to ground/platform. A broad two-sided carriage deliberately permits pickup from either direction without an extra input. The bay requires crate center x754–800, platform support, y48, stable for one second. Hovering through the bay never wins. Completion is state-based, not an input sequence.
 

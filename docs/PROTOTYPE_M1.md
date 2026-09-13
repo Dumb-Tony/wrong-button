@@ -21,4 +21,3 @@ Verify stable mappings across 20 resets, all inputs under power off, braking whi
 
 ## Decision rule and deliverables
 One offline HTML, transition table and novice/replay timing notes. If players resort to random cycling, improve feedback or remove one dependency. If repeat play does not become faster, examine input friction and task layout. A puzzle solved only with a verbal walkthrough does not pass.
-

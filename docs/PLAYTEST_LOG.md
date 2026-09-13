@@ -1,6 +1,6 @@
 # Wrong Button — Playtest log
 
-## 2026-09-13 — M1, rules m1-1
+## 2026-09-13 — M1, rules m1-2
 
 Decision: **iterate / recruit fresh testers**. The bounded prototype is implemented. M1 comprehension, replay learning and interest gates are NOT passed. No M2 work began.
 
@@ -17,3 +17,5 @@ Limitations: no fresh human testers, no subjective feel testing, no measured ten
 Next bounded experiment: give five fresh players only the objective and generic input instructions. Record mistaken hypotheses, first solve time, hint count, break/replay time, dependency explanations and voluntary interest. Require four solves within ten minutes with at most the observational hint; three replays under half the first time with correct explanations; three interested in another machine. If weak, tune feedback or friction before any new content.
 
 Storage regression: explicitly throwing localStorage access still permits play and preserves in-memory notes across reset (PASS).
+
+Recovery tuning round: the x810 right stop could strand right-side pickups short of the bay. Extended to x840; both left- and right-side pickup-to-delivery routes now pass, with normal 11.500-second FPS routes unchanged. Rules incremented to m1-2 before final release; complete recovery routes added to the harness.
