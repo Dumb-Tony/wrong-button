@@ -96,3 +96,8 @@ M1 includes only the bespoke prototype specification in docs/PROTOTYPE_M1.md. Do
 ## 2026-09-13 — User-authorized expansion
 
 The user explicitly requested autonomous level expansion after approving the Night Shift look. The earlier M1-only restriction is superseded for this work. Human comprehension gates remain open; this authorization is not a test result. Current playable source is game/index.html with 24 jobs; prototypes/m1 remains the preserved one-job build. See docs/CAMPAIGN.md for scope, transitions and the authored job list.
+
+
+## 2026-09-13 — Short chapters and machine variety
+
+The user reported that a long campaign on one machine becomes repetitive and requested 3–5 progressively complex levels before moving to the next machine. This supersedes the 24-job expansion described above. Current scope is four forklift jobs followed by four magnetic gantry jobs; the gantry adds explicit magnetic coupling and release, overhead travel and solid divider clearance. This is an authorized direction change, not evidence that human comprehension or enjoyment gates have passed. See docs/CAMPAIGN.md for the current authored sequence.

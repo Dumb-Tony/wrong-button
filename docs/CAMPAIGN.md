@@ -1,52 +1,32 @@
-# Night Shift campaign — rules nightshift-1
+# Machine chapters
 
-## Scope authorization
+User direction, 13 September 2026: repeating the same machine for 24 jobs becomes boring. Replace that campaign with 3–5 progressively complex jobs per machine, then change machines. Current implementation uses four jobs each on two machines.
 
-On 2026-09-13 the user explicitly requested autonomous expansion with as many levels as practical, with feedback after returning. That supersedes the earlier M1-only scope restriction. This release provides 24 authored jobs on the same consistent machine. It does not claim that the original fresh-player comprehension gate passed; human testing remains pending. The classic M1 file is preserved separately.
-
-## Progression
-
-Four shifts of six jobs. Every job is accessible from the job board (J), so feedback need not be blocked behind completion. Results offer Next job and Replay job. After the last job, the board appears; completing all 24 earns the closing message. Continue resumes the last selected/next job from a fresh attempt, not an in-progress physical snapshot. Notes and personal bests persist separately from attempts.
-
-| Job | Name | Main challenge |
+| Job | Machine | Challenge |
 | --- | --- | --- |
-| 01 | First shift | Original delivery direction |
-| 02 | Back to the floor | Unload left from the platform |
-| 03 | Long haul | Full-lane carry |
-| 04 | Across the workshop | Reverse toward a left-side bay |
-| 05 | A little precision | 30-unit bay |
-| 06 | Two orders | Two crates, matched bays |
-| 07 | Low bridge | Height-sensor passage |
-| 08 | Underpass return | Reverse through the passage |
-| 09 | The listening door | Powered sound receiver |
-| 10 | Knock from the other side | Open the door from a reverse start |
-| 11 | Mind the roof | Lower clearance, door, precise bay |
-| 12 | Twin passage | Two loads through both obstacles |
-| 13 | Weigh in | Stamp cargo at the inspection pad |
-| 14 | Return receipt | Inspect a return delivery |
-| 15 | Measured twice | Stamp two loads individually |
-| 16 | Inspection lane | Inspection plus clearance |
-| 17 | Signed and sealed | Inspection plus listening door |
-| 18 | Checked at the door | Reverse route through all three systems |
-| 19 | Clock out | Delivery, then powered-down parking |
-| 20 | Crossed orders | Crates cross directions; park in the middle |
-| 21 | Three tickets | Three individually matched deliveries |
-| 22 | The night inspector | Two stamps, listening door, return parking |
-| 23 | Tight schedule | Narrow return bays, sensor, stamp, door, parking |
-| 24 | Last light out | Three loads, crossed routes, every system, parking |
+| 1. First shift | Forklift | Discover power, wheel brake, travel and lifting; one broad bay. |
+| 2. Listening door | Forklift | Add a powered sound receiver and horn-operated shutter. |
+| 3. Inspection lane | Forklift | Stop and brake for an inspection stamp, then pass a low clearance. |
+| 4. Forklift finale | Forklift | Two stamped deliveries through a door; park and shut down. |
+| 5. A different attraction | Magnetic gantry | Discover close alignment, magnetic coupling and release into a broad bay. |
+| 6. Up and over | Magnetic gantry | Hoist cargo above an 80-unit divider. |
+| 7. Narrow landing | Magnetic gantry | Reverse direction over a taller 125-unit divider into a narrow bay. |
+| 8. Crane finale | Magnetic gantry | Deliver two steel loads to opposite sides of a 105-unit divider. |
 
-## Authored rules (developer spoilers)
+## Machine relationships
 
-Inputs retain the M1 mapping. Power enables travel/hydraulics. The brake stops travel. Space raises while held, lowers on release while powered. Fork range 0–120; travel 100 units/s, raising 65/s, lowering 40/s. Pickup chooses the nearest undelivered crate within 74 units when a rising carriage crosses its underside. Only one crate is carried at a time. Crates are identified by letters as well as colors. Correctly settled cargo is accepted after one second and remains delivered for the attempt.
+1 powers either machine. 3 controls its wheel/rail brake. Arrows set horizontal travel; Down centers the selector. Holding Space raises the carriage or hoist; releasing lowers it while powered. On the forklift, 2 sounds the horn. On the gantry, the visibly square teal control toggles a magnet that requires power. The new machine is announced at the handoff, and its scene, observations, accessible state and hints change accordingly.
 
-Listening doors stay closed until the horn is sounded while power is on; then they latch open until reset. The horn always remains a horn. The new relationship is the powered receiver attached to the door. Closed doors stop the vehicle without damaging it.
+The gantry head couples within 18 horizontal units and 4 vertical units of a steel load. Attached loads follow the trolley and cannot cross a divider below its top. The empty head also respects the divider. Turn off the magnet to detach; loss of power also releases a load. Dropped loads settle on the floor or divider and can be recovered. Matching bays accept only detached loads at floor height, stable for one second. Delivered loads stay complete.
 
-Clearance passages are height-sensor interlocks, not physical roofs. Their sign and current-height readout identify the allowed carriage height. Travel is denied while too high in the sensor zone; lowering recovers immediately. These are authored fictional constraints, not realistic forklift certification equipment.
+Forklift jobs preserve the established simulation: gates listen when powered, inspection requires power and braking for 1.5 seconds, height sensors stop a raised carriage, and parking requires neutral, brake on and power off for one second.
 
-Inspection pads stamp each crate after 1.5 seconds in range, with engine on and brake set. Cargo may rest on forks or floor. Required inspection must happen before delivery is accepted. A stamped crate keeps its receipt for that attempt. The bay rejects the wrong letter, an unstamped load or a hovering load.
+## Progress and navigation
 
-Parking jobs require all deliveries, vehicle within 24 units of P, centered lever, brake set and power off for one second. No attempt timer failures. Reset only restarts the current job and retains notes/records. State uses fixed 1/120 steps with eight-step catch-up cap. Small epsilon tolerance handles floating-point accumulation at exact dwell thresholds.
+All eight jobs are available from the board, grouped by machine. Next proceeds through the chapter and then changes machines. Job 4 explicitly offers “Meet the gantry.” Replay stays on the completed job; the final result returns to the board. Notes are shared between machines.
 
-## Validation boundaries
+Rules/save version: `machine-chapters-1`, stored under `wrong-button-chapters`. Notes and sound migrate from `wrong-button-nightshift`, falling back to `wrong-button`. Previous numeric job records are deliberately not remapped. The previous keys are preserved. Storage failure leaves the game playable in memory.
 
-All authored routes have automated completion evidence. The route driver uses observed simulation state to issue controls and thus knows the solution; its times measure reproducibility, not novice performance or subjective enjoyment. Full human keyboard/touch feel, accessibility with a screen reader, difficulty ordering and fresh-player comprehension remain feedback gates. No fake testers or claimed playtime estimates.
+## Validation
+
+The browser harness covers complete simulation routes at 30/60/120 presentation schedules, real DOM keyboard replays across all eight jobs, rejection and recovery cases, navigation, machine-specific control semantics, and both legacy migrations. These tests establish functional behavior, not enjoyment or fresh-player comprehension. See PLAYTEST_LOG.md for actual results.

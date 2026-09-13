@@ -49,3 +49,15 @@ Route-driver times ranged from 5.1667 to 34.4000 simulated seconds per job; thes
 Visual/browser checks: desktop job board and combined final-job scene inspected; 390×844 job board and listening-door scene inspected, including actual native 1/2 key input opening the receiver. Restored viewport. The long repeated objective was removed from the observation caption to keep feedback compact. Clearance gates show current/allowed height and an OK/LOWER state while nearby. CPU/GPU and browser context remain as recorded in the earlier local test entry; no new sustained performance benchmark is claimed.
 
 Decision: release for the user's requested feedback. No fresh-player comprehension or enjoyment gate is claimed. Primary remaining questions: whether progression feels varied enough, whether height management is comfortable, whether inspection/parking dependencies are legible without hints, and whether three-load jobs remain satisfying. No invented testers and no multiplayer expansion.
+
+
+## 2026-09-13 — Four jobs per machine
+
+- Request: reduce repetition by changing machines after 3–5 progressively complex jobs. Replaced 24 forklift jobs with four forklift jobs and four magnetic gantry jobs.
+- Automated browser harness, local HTTP, in-app Chromium: **81 assertions passed**. All eight full simulation routes passed at 30/60/120 frame schedules with identical recorded times per route. Complete DOM keyboard replay traversed all eight jobs and the machine transition, then tested final replay/board navigation.
+- Scripted solve times in seconds, jobs 1–8: 8.39, 8.66, 10.09, 30.07, 10.19, 10.87, 11.69, 22.32. These are oracle-driven automated routes, not first-play completion estimates.
+- Regressions include low-load and empty-head divider rejection, raised clearance, detached-only acceptance, recoverable drops onto the divider, alignment/power requirements, safe power loss, forklift gates/inspection/parking, focus loss, notes isolation, reset independence and machine-specific accessible controls.
+- Both M1 and old 24-job campaign notes/sound migration pass. Incompatible old records are not attached to new jobs; storage-denied navigation remains playable.
+- Visual inspection at the existing 1265 × 712 desktop browser viewport: teal gantry chapter, cable/head, divider, load letters, bays, live hoist/magnet instrument and distinct square teal control render correctly. Chapter board shows two groups of four. No fresh human playtest or mobile-device feel test performed in this pass.
+- Test fixture corrections: restored 240-step waits after a broad numeric replacement accidentally shortened them; allowed sufficient travel time in the obstacle-crossing assertion; positioned the head to cross the dropped load's pickup height for recovery. Final suite passes after adding physical collision for the empty head.
+- Decision: ship the requested pacing/variety revision for user feedback. Human enjoyment and discovery-readability gates remain open.
