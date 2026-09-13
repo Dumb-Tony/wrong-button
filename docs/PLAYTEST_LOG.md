@@ -19,3 +19,9 @@ Next bounded experiment: give five fresh players only the objective and generic 
 Storage regression: explicitly throwing localStorage access still permits play and preserves in-memory notes across reset (PASS).
 
 Recovery tuning round: the x810 right stop could strand right-side pickups short of the bay. Extended to x840; both left- and right-side pickup-to-delivery routes now pass, with normal 11.500-second FPS routes unchanged. Rules incremented to m1-2 before final release; complete recovery routes added to the harness.
+
+## 2026-09-13 — Direct keyboard controls
+
+User feedback: pointer-only operation felt awkward. Added global 1/2/3 shortcuts for the two round buttons and switch, Left/Down/Right for the three lever positions, and hold/release Space for the bottom control. No Tab focus is required. Visible keycaps and accessible shortcuts identify inputs without giving functional answers. Mouse controls remain available. Physics and existing notes/records remain compatible with m1-2.
+
+Validation: full synthetic keyboard gameplay route passed at 11.500 seconds with no control clicks/focus changes. Existing recovery, timing, pause, reset and storage regressions passed. Added passing checks for toggle repeat suppression, Space on a focused toggle, Space release, notebook typing isolation and direct keys on the focused lever. Native browser key presses verified Enter start, 1, 3, Right, Down and Space with focus left on the first button; rendered keycaps inspected. These are automated browser interactions, not human feel testing. Fresh-player gates remain open.

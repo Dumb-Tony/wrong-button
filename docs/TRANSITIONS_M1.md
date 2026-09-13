@@ -19,3 +19,5 @@ Tuning decisions: instantaneous brake, bounded movement, no unstable tipping phy
 Pause clears the held control and accumulator. Reset restores only attempt state; versioned notebook, sound setting and compatible best record survive. Storage exceptions fall back to memory. R asks before reset; Escape pauses; dialog Escape resumes a paused attempt. Result retry is one click. Explicit saved-data erase is confirmed.
 
 Known simplifications: a fictional symmetric carriage, immediate wheel stop, no collision damage or inertia, no fork tipping, only one observational hint, no remapping, no second machine. Human comprehension and interest gates remain open.
+
+Direct keys: 1 / 2 / 3 activate the matching panel controls; Left / Down / Right select the lever positions; hold Space engages the bottom control. No focus navigation is needed. Enter activates focused UI buttons; Escape pauses and R offers reset. Gameplay shortcuts are disabled while typing notes or using dialogs; repeated keydown does not retoggle a held button.

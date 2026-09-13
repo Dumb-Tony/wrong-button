@@ -14,3 +14,5 @@ For development, serve `prototypes/m1` with any static server and open `checks.h
 - [Actual validation evidence and limitations](docs/PLAYTEST_LOG.md)
 
 Private conversation source notes remain local and are excluded from Git. Deployment stages only the game HTML, not project notes or the regression harness. No M2 work is authorized by an automated test pass.
+
+Keyboard: **1 / 2 / 3**, **Left / Down / Right**, and **hold Space** match the panel keycaps. No tabbing between machine controls is necessary. Press Enter to start/retry, Escape to pause, R to offer reset.
