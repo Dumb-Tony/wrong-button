@@ -1,18 +1,19 @@
-# Wrong Button
+# Wrong Button — Night Shift
 
-[Play the M1 prototype](https://dumb-tony.github.io/wrong-button/)
+[Play the 24-job campaign](https://dumb-tony.github.io/wrong-button/)
 
-One unfamiliar machine, five unlabeled controls, one crate. Learn through experimentation, then retry from memory. Single player; M1 only. Human comprehension and enjoyment gates remain open.
+One machine. Five controls that never shuffle. Twenty-four authored jobs across four shifts, combining deliveries, reverse journeys, precision bays, height-sensor passages, horn-operated doors, inspection stamps, multiple lettered crates and parking objectives.
 
-Open `prototypes/m1/index.html` directly in a browser for offline play. No installation, build, CDN or external assets. The same single file is published by GitHub Pages. Browser storage saves only your notes, sound preference, reset count and compatible local records; gameplay works without storage.
+**Controls:** 1 / 2 / 3 press the matching controls. Left / Down / Right select the lever position. Hold Space for the bottom control. Escape pauses; R offers reset; J opens the job board. Mouse controls also work. The job board is available from the start and pause screens, and every job is open for feedback.
 
-For development, serve `prototypes/m1` with any static server and open `checks.html` to run the browser-based regression suite. The harness uses a virtual frame clock and synthetic DOM events; it is not a human playtest. Node is not required.
+Progress, per-job best times, notes and sound preference save locally. Existing M1 notes/sound migrate; its times remain separate because the campaign has different rules. Finished cargo stays delivered for the attempt. No timer failures, accounts or online requirements.
 
-- [Design](GDD.md)
-- [M1 scope and human acceptance gates](docs/PROTOTYPE_M1.md)
-- [Transition table and tuning decisions — spoilers](docs/TRANSITIONS_M1.md)
-- [Actual validation evidence and limitations](docs/PLAYTEST_LOG.md)
+**Offline:** open `game/index.html` directly. It contains its own CSS, JavaScript, Canvas artwork and generated audio. Direct file opening has not been verified by the restricted browser tool. The [original one-job prototype](https://dumb-tony.github.io/wrong-button/classic/) remains available, with its source untouched in `prototypes/m1`.
 
-Private conversation source notes remain local and are excluded from Git. Deployment stages only the game HTML, not project notes or the regression harness. No M2 work is authorized by an automated test pass.
+**Developer checks:** serve `game` with any static server, then visit `checks.html`. The suite solves all 24 jobs at three frame schedules and replays the entire campaign through the keyboard handlers. It also checks obstacle rejection, inspections, parking, navigation and save behavior. It uses a virtual clock and test-owned input, not human playtesting. The local test origin can acquire test records; use a separate profile if preserving local practice records matters.
 
-Keyboard: **1 / 2 / 3**, **Left / Down / Right**, and **hold Space** match the panel keycaps. No tabbing between machine controls is necessary. Press Enter to start/retry, Escape to pause, R to offer reset.
+- [Campaign rules and job list](docs/CAMPAIGN.md)
+- [Actual test evidence and remaining gates](docs/PLAYTEST_LOG.md)
+- [Original design](GDD.md)
+
+GitHub Pages publishes only the campaign HTML and classic HTML. Private source transcripts remain local and excluded from Git.

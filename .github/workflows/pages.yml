@@ -1,4 +1,4 @@
-name: Publish M1
+name: Publish Night Shift
 on:
   push:
     branches: [main]
@@ -20,8 +20,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Stage only the standalone game
         run: |
-          mkdir public
-          cp prototypes/m1/index.html public/index.html
+          mkdir -p public/classic
+          cp game/index.html public/index.html
+          cp prototypes/m1/index.html public/classic/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
